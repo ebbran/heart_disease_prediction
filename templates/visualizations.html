@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .header {
+            background-image: url("{{ url_for('static', filename='images/heart.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 40px 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: rgb(251, 249, 249);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        a i {
+            margin-right: 10px;
+        }
+
+        .visualization-icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 30px;
+            }
+
+            a {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Interactive Visualizations</h2>
+        <p>Explore the data through beautiful, interactive visualizations.</p>
+    </div>
+
+    <ul>
+        <li><a href="/plot?plot_type=age_distribution"><i class="visualization-icon">📊</i> Age Distribution</a></li>
+        <li><a href="/plot?plot_type=gender_distribution"><i class="visualization-icon">👥</i> Gender Distribution</a></li>
+        <li><a href="/plot?plot_type=height_distribution"><i class="visualization-icon">📏</i> Height Distribution</a></li>
+        <li><a href="/plot?plot_type=weight_distribution"><i class="visualization-icon">⚖️</i> Weight Distribution</a></li>
+        <li><a href="/plot?plot_type=systolic_bp_distribution"><i class="visualization-icon">❤️</i> Systolic Blood Pressure Distribution</a></li>
+        <li><a href="/plot?plot_type=diastolic_bp_distribution"><i class="visualization-icon">💓</i> Diastolic Blood Pressure Distribution</a></li>
+        <li><a href="/plot?plot_type=cholesterol_distribution"><i class="visualization-icon">🩸</i> Cholesterol Level Distribution</a></li>
+        <li><a href="/plot?plot_type=glucose_distribution"><i class="visualization-icon">🍬</i> Glucose Level Distribution</a></li>
+        <li><a href="/plot?plot_type=smoking_status_distribution"><i class="visualization-icon">🚬</i> Smoking Status Distribution</a></li>
+        <li><a href="/plot?plot_type=alcohol_consumption_distribution"><i class="visualization-icon">🍷</i> Alcohol Consumption Distribution</a></li>
+        <li><a href="/plot?plot_type=physical_activity_distribution"><i class="visualization-icon">🏃‍♀️</i> Physical Activity Distribution</a></li>
+        <li><a href="/plot?plot_type=cardiovascular_disease_distribution"><i class="visualization-icon">🫀</i> Cardiovascular Disease Distribution</a></li>
+        <li><a href="/plot?plot_type=correlation_matrix"><i class="visualization-icon">🔗</i> Correlation Matrix</a></li>
+    </ul>
+
+    <a href="/">Back to Home</a>
+
+    <div class="footer">
+        <p>© 2024 Heart Disease Prediction | Data-driven Insights</p>
+    </div>
+</body>
+</html>

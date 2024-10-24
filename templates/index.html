@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='images/cardiology.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .floating-btn:hover {
+            background-color: #ff4500;
+        }
+
+        .caution-section {
+            margin-top: 30px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .caution-section h3 {
+            color: #ff6347;
+        }
+
+        .caution-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .caution-section li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Heart Disease Prediction System</h2>
+        <p>Welcome to the Heart Disease Prediction System. Click below to start predicting your heart disease risk.</p>
+        
+        <a href="/predict" class="button">Start Prediction</a>
+        <a href="/visualizations" class="button">View Visualizations</a>
+    </div>
+
+    <div class="caution-section">
+        <h3>💡 Cautions to Prevent Heart Disease:</h3>
+        <ul>
+            <li>🚶‍♂️ Stay Active: Regular exercise can reduce the risk of heart disease.</li>
+            <li>🥗 Eat Healthy: Include fruits, vegetables, and whole grains in your diet.</li>
+            <li>🚭 Quit Smoking: Smoking significantly increases your risk of heart disease.</li>
+            <li>🍷 Limit Alcohol: Keep alcohol intake moderate to protect your heart.</li>
+            <li>🧘‍♀️ Manage Stress: Practice relaxation techniques like yoga or meditation.</li>
+            <li>⚖️ Maintain a Healthy Weight: Obesity is a major risk factor for heart disease.</li>
+            <li>🩺 Regular Checkups: Get your blood pressure and cholesterol checked frequently.</li>
+        </ul>
+    </div>
+
+    <a href="/visualizations" class="floating-btn" title="Visualizations">📊</a>
+</body>
+</html>

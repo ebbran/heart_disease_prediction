@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; 
+            background-image: url('https://cdn.pixabay.com/photo/2018/10/01/22/11/heart-3712681_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 450px; 
+            min-height: 600px; 
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 600;
+            margin: 10px 0;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .prediction-result {
+            background-color: rgba(0, 123, 255, 0.8);
+            padding: 15px;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .form-section {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Heart Disease Prediction</h2>
+
+        <form action="/predict" method="POST">
+            <div class="form-section">
+                <label for="age">Age:</label>
+                <input type="text" name="age" required placeholder="Enter your age in years">
+            </div>
+
+            <div class="form-section">
+                <label for="gender">Gender (1 = Male, 2 = Female):</label>
+                <input type="text" name="gender" required placeholder="Enter 1 for Male, 2 for Female">
+            </div>
+
+            <div class="form-section">
+                <label for="height">Height (cm):</label>
+                <input type="text" name="height" required placeholder="Enter your height in cm">
+            </div>
+
+            <div class="form-section">
+                <label for="weight">Weight (kg):</label>
+                <input type="text" name="weight" required placeholder="Enter your weight in kg">
+            </div>
+
+            <div class="form-section">
+                <label for="ap_hi">Systolic Blood Pressure:</label>
+                <input type="text" name="ap_hi" required placeholder="Enter systolic blood pressure (mmHg)">
+            </div>
+
+            <div class="form-section">
+                <label for="ap_lo">Diastolic Blood Pressure:</label>
+                <input type="text" name="ap_lo" required placeholder="Enter diastolic blood pressure (mmHg)">
+            </div>
+
+            <div class="form-section">
+                <label for="cholesterol">Cholesterol (1 = Normal, 2 = Above Normal, 3 = Well Above Normal):</label>
+                <input type="text" name="cholesterol" required placeholder="Enter cholesterol level">
+            </div>
+
+            <div class="form-section">
+                <label for="gluc">Glucose (1 = Normal, 2 = Above Normal, 3 = Well Above Normal):</label>
+                <input type="text" name="gluc" required placeholder="Enter glucose level">
+            </div>
+
+            <div class="form-section">
+                <label for="smoke">Smoking (0 = No, 1 = Yes):</label>
+                <input type="text" name="smoke" required placeholder="Enter smoking status (0 or 1)">
+            </div>
+
+            <div class="form-section">
+                <label for="alco">Alcohol Intake (0 = No, 1 = Yes):</label>
+                <input type="text" name="alco" required placeholder="Enter alcohol intake status (0 or 1)">
+            </div>
+
+            <div class="form-section">
+                <label for="active">Physical Activity (0 = No, 1 = Yes):</label>
+                <input type="text" name="active" required placeholder="Enter physical activity status (0 or 1)">
+            </div>
+
+            <div class="form-section">
+                <label for="id">ID:</label>
+                <input type="text" name="id" required placeholder="Enter an ID">
+            </div>
+            
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+            <div class="prediction-result">
+                <h3>{{ prediction_text }}</h3>
+            </div>
+        {% endif %}
+
+        <a href="/visualizations">Go to Visualizations</a>
+    </div>
+</body>
+</html>
